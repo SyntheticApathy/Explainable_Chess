@@ -1,31 +1,31 @@
 """ 
 Take in a FEN, parse the positions of the pieces, legal moves, and **more** and upload to the ontology. 
- This is a work in progress; for now only basic
 
 
  FEN grammar: **Fields are seperated by a singular space.**  
-    1st field: Placement of Pieces: 
+    1st field: Placement of Pieces:  "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
                 - lowercase letter denotes black piece, UPPERCASE denotes white piece.
-                - Start from 8th rank, left to right
+                - Start from 8th rank, 1 => 8. 
                 - Empty squares are denoted by numbers, depending how many empty squares there are between two pieces
                 - rows seperated by /
-    2nd field: indicates who moves next. "w" = white to move, "b" = black to move. always lowercase.
+    2nd field: indicates who moves next.  " w "
+         "w" = white to move, "b" = black to move. always lowercase.
 
-    3rd field: Castling rights (white then black)
+    3rd field: Castling rights (white|||black) " KQkq "
                 - "K" - white can castle kingside
                 - "Q" - white can castle queenside
                 - "k" - black can castle kingside
                 - "q" - black can castle queenside.
                 - "-" - neither side can castle
-    4th field: en passant
+    4th field: en passant      " - "
                 - square BEHIND the pawn which has just moved. (ie, if e2 -> e4 then "e3" is added to the fourth field)
                 - "-" - no en passant targets are available
-    5th field: halfmove
+    5th field: halfmove " 0 "
                 how many moves both players have made since the last pawn advance 
                 OR piece capture.
-                This field is useful to enforce the 50-move draw rule. 
+               !! This field is useful to enforce the 50-move draw rule. 
                 When this counter reaches 100 (allowing each player to make 50 moves), the game ends in a draw
-    6th field: full move
+    6th field: full move " 1 "
                 - how many turns in the game.
 
     example: starting position: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
@@ -105,7 +105,7 @@ def upload_position(info: List[str]):
             piece_ind.is_a.append(piece_cls)
             piece_ind.is_a.append(color_cls)
             onSquare[piece_ind] = [sq_ind]
-            legalMove[piece_ind] = 
+            #legalMove  =  ???? >;c
     onto.save(file="BP_ontology_1.owx")
 
 
