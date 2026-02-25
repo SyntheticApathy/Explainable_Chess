@@ -37,7 +37,7 @@ from owlready2 import get_ontology
 from typing import List, DefaultDict
 from chess_logic import *
 
-onto = get_ontology("file://BP_ontology.owx").load()
+onto = get_ontology("/BP_ontology.owx").load()
 
 
 
