@@ -75,6 +75,8 @@ def upload_position(info: List[str]):
     WhitePiece = onto.WhitePiece
     BlackPiece = onto.BlackPiece
     legalMove = onto.legalMove
+
+    
     counters = DefaultDict(int)
 
     for r in range(8):

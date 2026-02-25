@@ -1,8 +1,6 @@
 
-# Stockfish binary
-stockfish
-stockfish*
-Stockfish
-Stockfish*
-**/stockfish
-**/stockfish*
+PDFS/
+PDFS/defeasibleDL.pdf
+bin/
+bin/stockfish
+Ontologies/
