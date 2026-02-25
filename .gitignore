@@ -4,4 +4,5 @@ PDFS/defeasibleDL.pdf
 bin/
 bin/stockfish
 Ontologies/
+!BP_ontology.owx
 /bin/stockfish
