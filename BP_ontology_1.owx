@@ -1,0 +1,347 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project"
+         xmlns="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#">
+
+<owl:Ontology rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project"/>
+
+<owl:ObjectProperty rdf:about="#isAttacking">
+  <rdfs:domain rdf:resource="#Piece"/>
+  <rdfs:range rdf:resource="#Square"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#legalMove">
+  <rdfs:domain rdf:resource="#Piece"/>
+  <rdfs:range rdf:resource="#Square"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#onSquare">
+  <rdfs:domain rdf:resource="#Piece"/>
+  <rdfs:range rdf:resource="#Square"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#Piece"/>
+
+<owl:Class rdf:about="#Square"/>
+
+<owl:Class rdf:about="#Bishop">
+  <rdfs:subClassOf rdf:resource="#Piece"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BlackPiece">
+  <rdfs:subClassOf rdf:resource="#Piece"/>
+</owl:Class>
+
+<owl:Class rdf:about="#King">
+  <rdfs:subClassOf rdf:resource="#Piece"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Knight">
+  <rdfs:subClassOf rdf:resource="#Piece"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Pawn">
+  <rdfs:subClassOf rdf:resource="#Piece"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Queen">
+  <rdfs:subClassOf rdf:resource="#Piece"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Rook">
+  <rdfs:subClassOf rdf:resource="#Piece"/>
+</owl:Class>
+
+<owl:Class rdf:about="#WhitePiece">
+  <rdfs:subClassOf rdf:resource="#Piece"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#a1">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a2">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a3">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a4">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a5">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a6">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a7">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a8">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b1">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b2">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b3">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b4">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b5">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b6">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b7">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b8">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c1">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c2">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c3">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c4">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c5">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c6">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c7">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c8">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d1">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d2">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d3">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d4">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d5">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d6">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d7">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d8">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e1">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e2">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e3">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e4">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e5">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e6">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e7">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e8">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f1">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f2">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f3">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f4">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f5">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f6">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f7">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f8">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g1">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g2">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g3">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g4">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g5">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g6">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g7">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g8">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#h1">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#h2">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#h3">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#h4">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#h5">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#h6">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#h7">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#h8">
+  <rdf:type rdf:resource="#Square"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#bK_1">
+  <rdf:type rdf:resource="#Piece"/>
+  <rdf:type rdf:resource="#King"/>
+  <rdf:type rdf:resource="#BlackPiece"/>
+  <onSquare rdf:resource="#h8"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#bP_1">
+  <rdf:type rdf:resource="#Piece"/>
+  <rdf:type rdf:resource="#Pawn"/>
+  <rdf:type rdf:resource="#BlackPiece"/>
+  <onSquare rdf:resource="#e7"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#wR_1">
+  <rdf:type rdf:resource="#Piece"/>
+  <rdf:type rdf:resource="#Rook"/>
+  <rdf:type rdf:resource="#WhitePiece"/>
+  <onSquare rdf:resource="#e6"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#wK_1">
+  <rdf:type rdf:resource="#Piece"/>
+  <rdf:type rdf:resource="#King"/>
+  <rdf:type rdf:resource="#WhitePiece"/>
+  <onSquare rdf:resource="#a1"/>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
