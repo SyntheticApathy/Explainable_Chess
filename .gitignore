@@ -6,3 +6,4 @@ bin/stockfish
 Ontologies/
 !BP_ontology.owx
 /bin/stockfish
+/__pycache__\chess_logic.cpython-314.pyc
