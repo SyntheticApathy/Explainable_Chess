@@ -37,7 +37,7 @@ from owlready2 import get_ontology
 from typing import List, DefaultDict
 from chess_logic import *
 
-onto = get_ontology("/BP_ontology.owx").load()
+onto = get_ontology("BP_ontology.owx").load()
 
 
 
@@ -106,7 +106,7 @@ def upload_position(info: List[str]):
             piece_ind.is_a.append(color_cls)
             onSquare[piece_ind] = [sq_ind]
             #legalMove  =  ???? >;c
-    onto.save(file="BP_ontology_1.owx")
+    onto.save(file="Ontologies/udpated_ontology.owx")
 
 
 def create_board_rep(positions:List[str]) -> List[List[str]]:
@@ -126,6 +126,11 @@ def create_board_rep(positions:List[str]) -> List[List[str]]:
             else: 
                 rank.append(ch)
         board.append(rank)
+    
+    for r in board:
+        print(r)
+
+
     return board
 
 upload_position(_input())

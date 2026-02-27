@@ -1,0 +1,1 @@
+# This is gonna be the main logic for the static DL Classes 
