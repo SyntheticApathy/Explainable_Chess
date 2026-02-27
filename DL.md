@@ -1,18 +1,22 @@
 
 # Classes
+
+
+## All Classes
+
 | Concept                    | Desc                             | Range | Domain |
 | -------------------------- | -------------------------------- | ----- | ------ |
 | Piece                      | Each piece: has [[#Subclasses]]. |       |        |
 | Square                     | All squares on the board.        |       |        |
-| Under Attack               |                                  |       |        |
+| Under Attack               | inverse of isAttacking           |       |        |
 | Safe King                  |                                  |       |        |
 | Weak King                  |                                  |       |        |
-| Isolated Pawn              |                                  |       |        |
-| Pawn Chain                 |                                  |       |        |
-| Lines of Sight             |                                  |       |        |
-| Open File                  |                                  |       |        |
-| Controlled Open File       |                                  |       |        |
-| Open File Battle           |                                  |       |        |
+| Isolated Pawn              | No pawns on adjacent files       |       |        |
+| Pawn Chain                 | Multiple pawns diagonal          |       |        |
+| Lines of Sight             | All legal moves of a piece (?)   |       |        |
+| Open File                  | $\nexists$.Piece on File         |       |        |
+| Controlled Open File       | $\exists$.Piece on Fiile         |       |        |
+| Open File Battle           | idk                              |       |        |
 | Passive                    |                                  |       |        |
 | Controlled Squares         |                                  |       |        |
 | King Safety Imbalance      |                                  |       |        |
@@ -80,6 +84,25 @@
 | Exchange Sacrifice Motif   |                                  |       |        |
 | Fortress Potential         |                                  |       |        |
 | Perpetual Check Threat     |                                  |       |        |
+| Advantage                  |                                  |       |        |
+|                            |                                  |       |        |
+|                            |                                  |       |        |
+
+### Rook Classes 
+build upon this for the baseline variation, so only focus on this for now.
+
+| Class                | Desc                     |
+| -------------------- | ------------------------ |
+| Open File            | $\nexists$.Piece on File |
+| Controlled Open File | $\exists$.Piece on Fiile |
+| Open File Battle     | idk                      |
+| Piece Activity       |                          |
+| Passive              |                          |
+| Active               |                          |
+| Under Attack         |                          |
+|                      |                          |
+
+
 ## Subclasses
 
 | Parent Class | Name of Subclass |
@@ -94,10 +117,10 @@
 |              | WhitePiece       |
 |              |                  |
 
-## Obj Properties
+# Obj Properties
 
 | Name        | Desc       | Range | Domain |
 | ----------- | ---------- | ----- | ------ |
-| isAttacking | kinda obvs | Piece | Square |
+| isAttacking | kinda obvs | Piece | Piece  |
 | legalMove   | kinda obvs | Piece | Square |
 | onSquare    | kinda obvs | Piece | Square |
