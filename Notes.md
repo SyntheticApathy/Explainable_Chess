@@ -15,7 +15,7 @@
 
 
 ## Problems
-- legalMove doesn't encode special moves: castling(two moves at once), promotion.
-	- these are exceptions to normal moves, but is it really needed?
-- Think of how to implement legalMoves
-	- isAttacking comes from that (legalMove piece $\to$ piece or maybe square?)
+
+
+- For now LLM is local, ssh into pc is kinda iffy ngl; sometimes work sometimes not bcs of the pi.
+- god i hate linux
