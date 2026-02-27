@@ -28,7 +28,7 @@ Take in a FEN, parse the positions of the pieces, legal moves, and **more** and 
     6th field: full move " 1 "
                 - how many turns in the game.
 
-    example: starting position: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+    example: starting position: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
 source: https://www.chess.com/terms/fen-chess
  """
@@ -41,19 +41,23 @@ onto = get_ontology("BP_ontology.owx").load()
 
 
 
-def _input() -> List[str]:
+def _input():
     """Take in FEN from user.
     ::args:: None
-    ::Return:: List of strings, each value represents a field. 
+    ::Return:: The new Ontology
     """ 
     print("Enter FEN:")
     FEN:str = input()
-    stockfish(FEN)
-    return FEN.strip().split(" ", 5)
+    
+    legal_moves = getLegalMoves(FEN)
+    return upload_position(FEN.strip().split(" ", 5), legal_moves)
+    
 
-def upload_position(info: List[str]):
+def upload_position(info: List[str], legal_moves):
     """Convert FEN to piece positions
-    ::args:: info: List[str] : The full information of the board. each value in the list represents a field in FEN. 
+    ::args:: info: List[str] : The full information of the board. each value in the list represents a field in FEN.
+             legal_moves: List[str] : The list of all legal moves for a player in this position.
+    ::Return:: The new Ontology
     """
     
     board:List[List[str]] = create_board_rep(info[0].split("/"))
@@ -74,11 +78,14 @@ def upload_position(info: List[str]):
     onSquare = onto.onSquare
     WhitePiece = onto.WhitePiece
     BlackPiece = onto.BlackPiece
-    legalMove = onto.legalMove
+    
+    
 
     
     counters = DefaultDict(int)
-
+    cntr:int = 0
+    created_pieces = []
+    
     for r in range(8):
         for c in range(8):
             ch = board[r][c]
@@ -90,23 +97,68 @@ def upload_position(info: List[str]):
             color_cls = WhitePiece if ch.isupper() else BlackPiece
             color_tag = "w" if ch.isupper() else "b"
 
+            #get current square name
             file_char = chr(ord("a") + c)
             rank_num = 8 - r
             sq = f"{file_char}{rank_num}"
             sq_ind = getattr(onto, sq)
 
+            #create piece
             counters[(color_tag, piece_cls_name)] += 1
             idx = counters[(color_tag, piece_cls_name)]
-
             letter = fen_letter[piece_cls_name]
             ind_name = f"{color_tag}{letter}_{idx}"
-
             piece_ind = onto.Piece(ind_name)
             piece_ind.is_a.append(piece_cls)
             piece_ind.is_a.append(color_cls)
+
+            #on square
             onSquare[piece_ind] = [sq_ind]
-            #legalMove  =  ???? >;c
-    onto.save(file="Ontologies/udpated_ontology.owx")
+            #store in array so we can then access it to check for properties
+            piece_ind.temp_sq = sq
+            created_pieces.append(piece_ind)
+    
+    for piece in created_pieces:
+            
+ #     ACTUAL LEGAL MOVES (From Stockfish)
+        moves = [m for m in legal_moves if m.startswith(piece.temp_sq)]
+        for m in moves:
+            dest_sq_ind = getattr(onto, m[2:4])
+            piece.legalMove.append(dest_sq_ind)
+
+        # THREAT ZONE (Attacking and Defending)
+        # Get all squares this piece 'points' at, including teammates
+        threatened_squares = get_threat_map(" ".join(info), piece.temp_sq)
+
+        for sq_name in threatened_squares:
+            dest_sq_ind = getattr(onto, sq_name)
+            target_piece = onto.search_one(onSquare=dest_sq_ind)
+
+            if target_piece:
+                # Check for color matching
+                is_white = onto.WhitePiece in piece.is_a
+                target_is_white = onto.WhitePiece in target_piece.is_a
+                target_is_black = onto.BlackPiece in target_piece.is_a
+
+                if (is_white and target_is_black) or (not is_white and target_is_white):
+                    # Enemy color = Attacking
+                    piece.isAttacking.append(target_piece)
+                elif (is_white and target_is_white) or (not is_white and target_is_black):
+                    # Same color = Defending
+                    piece.isDefending.append(target_piece)
+        del piece.temp_sq
+
+
+            
+
+    onto.save(file=f"Ontologies/udpated_ontology{cntr}.owx")
+    onto1 = get_ontology(f"Ontologies/udpated_ontology{cntr}.owx").load()
+
+    cntr+=1
+    
+   
+    
+    return onto1
 
 
 def create_board_rep(positions:List[str]) -> List[List[str]]:
@@ -133,4 +185,4 @@ def create_board_rep(positions:List[str]) -> List[List[str]]:
 
     return board
 
-upload_position(_input())
+
