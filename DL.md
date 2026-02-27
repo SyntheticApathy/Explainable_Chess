@@ -8,7 +8,7 @@
 | -------------------------- | -------------------------------- | ----- | ------ |
 | Piece                      | Each piece: has [[#Subclasses]]. |       |        |
 | Square                     | All squares on the board.        |       |        |
-| Under Attack               | inverse of isAttacking           |       |        |
+| Under Attack               |                                  |       |        |
 | Safe King                  |                                  |       |        |
 | Weak King                  |                                  |       |        |
 | Isolated Pawn              | No pawns on adjacent files       |       |        |
@@ -91,16 +91,16 @@
 ### Rook Classes 
 build upon this for the baseline variation, so only focus on this for now.
 
-| Class                | Desc                     |
-| -------------------- | ------------------------ |
-| Open File            | $\nexists$.Piece on File |
-| Controlled Open File | $\exists$.Piece on Fiile |
-| Open File Battle     | idk                      |
-| Piece Activity       |                          |
-| Passive              |                          |
-| Active               |                          |
-| Under Attack         |                          |
-|                      |                          |
+| Class                | Desc |
+| -------------------- | ---- |
+| Open File            |      |
+| Controlled Open File |      |
+| Open File Battle     |      |
+| Piece Activity       |      |
+| Passive              |      |
+| Active               |      |
+| Under Attack         |      |
+|                      |      |
 
 
 ## Subclasses
@@ -119,8 +119,8 @@ build upon this for the baseline variation, so only focus on this for now.
 
 # Obj Properties
 
-| Name        | Desc       | Range | Domain |
-| ----------- | ---------- | ----- | ------ |
-| isAttacking | kinda obvs | Piece | Piece  |
-| legalMove   | kinda obvs | Piece | Square |
-| onSquare    | kinda obvs | Piece | Square |
+| Name        | Desc                                                      |     |     |
+| ----------- | --------------------------------------------------------- | --- | --- |
+| isAttacking | A is attacking B if A has a legal move on the square of B |     |     |
+| legalMove   | kinda obvs                                                |     |     |
+| onSquare    | kinda obvs                                                |     |     |
