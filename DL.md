@@ -13,10 +13,10 @@
 | Weak King                  |                                  |       |        |
 | Isolated Pawn              | No pawns on adjacent files       |       |        |
 | Pawn Chain                 | Multiple pawns diagonal          |       |        |
-| Lines of Sight             | All legal moves of a piece (?)   |       |        |
-| Open File                  | $\nexists$.Piece on File         |       |        |
-| Controlled Open File       | $\exists$.Piece on Fiile         |       |        |
-| Open File Battle           | idk                              |       |        |
+| Lines of Sight             |                                  |       |        |
+| Open File                  |                                  |       |        |
+| Controlled Open File       |                                  |       |        |
+| Open File Battle           |                                  |       |        |
 | Passive                    |                                  |       |        |
 | Controlled Squares         |                                  |       |        |
 | King Safety Imbalance      |                                  |       |        |
@@ -119,8 +119,9 @@ build upon this for the baseline variation, so only focus on this for now.
 
 # Obj Properties
 
-| Name        | Desc                                                      |     |     |
-| ----------- | --------------------------------------------------------- | --- | --- |
-| isAttacking | A is attacking B if A has a legal move on the square of B |     |     |
-| legalMove   | kinda obvs                                                |     |     |
-| onSquare    | kinda obvs                                                |     |     |
+| Name        | Desc                                                            |                |
+| ----------- | --------------------------------------------------------------- | -------------- |
+| isAttacking | A is attacking B if A has a legal move on the square of B       | done in python |
+| legalMove   | all legal moves of a piece                                      |                |
+| onSquare    | a piece is on a square.                                         |                |
+| isDefending | A is defending B if A can see B AND A and B are the same colour |                |

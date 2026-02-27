@@ -29,4 +29,5 @@
 	- query from onto
 	- for now only DL
 	- convai + psai helpful here ;3
+	- fix prompting, get rid of "The white Rook is making a legal move to square owx.e5."
 	
