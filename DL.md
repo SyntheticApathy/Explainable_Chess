@@ -85,7 +85,7 @@
 | Fortress Potential         |                                  |       |        |
 | Perpetual Check Threat     |                                  |       |        |
 | Advantage                  |                                  |       |        |
-| Disadvana                  |                                  |       |        |
+| Disadvantage               |                                  |       |        |
 |                            |                                  |       |        |
 
 ### Rook Classes 

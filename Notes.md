@@ -25,11 +25,19 @@
 
 #### LLM
 - For now LLM is local, ssh into pc is kinda iffy ngl; sometimes work sometimes not bcs of the pi.
-- god i love linux
+- Fix Prompt: 
+	- Keep temp 0 for now
+	- Fix per colour 
+	- Get rid of the ontology artefacts
+	- expand ruleset
+	- maybe less restrictive output.
 - llm integration
 	- query from onto
 	- for now only DL
 	- convai + psai helpful here ;3
 		- https://www.kaggle.com/code/dawidek123/project-situated-ai-notebook1-up#4.-Instruct-the-LLM-to-produce-the-query-or-components-of-the-query-(e.g.,-keywords)-against-the-KG
-	- fix prompting, get rid of "The white Rook is making a legal move to square owx.e5."
-	
+
+#### Queries
+- Really bad for now, just query everything. Fix for more specific.
+- Split by colour, legal moves aren't that important for now.
+- 
