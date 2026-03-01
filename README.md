@@ -5,4 +5,3 @@ Some quick info:
 - Everything written here is 100% me. No AI (except for sometimes when I ask for markdown formatting bcs who has time for that)
 - This is mainly kept just for proof I don't use AI ;3
 	- All files which have AI (other than formatting) usage have warnings on the top. I am honest about usage.
-- 

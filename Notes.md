@@ -21,7 +21,7 @@
 
 ## Problems
 #### DL
-- Open file/rank/diagonal : Technically only if no pawn, but pawn is a class. 
+- Currently, every rank/file/diagonal is infered as a rank/file/diagonal. Can't seem to fix
 ##### DLN
 - literally everything.
 - Work out basic ruleset for rook first, then expand
