@@ -15,12 +15,22 @@
 	- Passive
 	- Active
 	- Under Attack
+- Modal Logic might be very useful here, create separate ontologies for user questions and then utilise modal logic for answering questions
 
 
 
 ## Problems
 #### DL
-- isDefending implementation
+- Open file/rank/diagonal : Technically only if no pawn, but pawn is a class. 
+##### DLN
+- literally everything.
+- Work out basic ruleset for rook first, then expand
+
+
+#### Modal Logic
+- This might be more important than originally thought
+	- Go n moves deep into a position, get evaluations, describe position (ontology), then go back to original. Apply modal logic to find if a piece move / positional arrangement is necessary.
+
 
 
 #### LLM
@@ -37,7 +47,8 @@
 	- convai + psai helpful here ;3
 		- https://www.kaggle.com/code/dawidek123/project-situated-ai-notebook1-up#4.-Instruct-the-LLM-to-produce-the-query-or-components-of-the-query-(e.g.,-keywords)-against-the-KG
 
+
 #### Queries
 - Really bad for now, just query everything. Fix for more specific.
-- Split by colour, legal moves aren't that important for now.
-- 
+- Split by colour, legal moves aren't that important.
+	- LLM generated queries? maybe? def for user questions
