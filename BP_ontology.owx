@@ -21,9 +21,29 @@
     
 
 
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasPiece -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasPiece">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#onSquare"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Piece"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#isAttacking -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#isAttacking"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#isAttacking">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#underAttack"/>
+    </owl:ObjectProperty>
     
 
 
@@ -51,6 +71,38 @@
     
 
 
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#pointsWorth -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#pointsWorth"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#underAttack -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#underAttack"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#isEmpty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#isEmpty">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -59,6 +111,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Advantage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Advantage"/>
     
 
 
@@ -78,6 +136,182 @@
     
 
 
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedDiagonal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedDiagonal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Diagonal"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasPiece"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Pawn"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Diagonal"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenDiagonal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedFile -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedFile">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasPiece"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Pawn"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenFile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedRank -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedRank">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasPiece"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Pawn"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Diagonal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Diagonal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_1"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_10"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_11"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_12"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_13"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_14"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_15"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_2"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_3"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_4"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_5"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_6"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_7"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_8"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_9"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_1"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_10"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_11"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_12"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_13"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_14"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_15"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_2"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_3"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_4"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_5"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_6"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_7"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_8"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_9"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Diagonal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Diagonal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#aFile"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#bFile"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#cFile"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#dFile"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#eFile"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#fFile"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#gFile"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hFile"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#King -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#King">
@@ -90,6 +324,30 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Knight">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Piece"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenDiagonal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenDiagonal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Diagonal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenFile -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenFile">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenRank -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenRank">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
     </owl:Class>
     
 
@@ -112,6 +370,35 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Queen">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Piece"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedRank"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenRank"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1Rank"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#2Rank"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#3Rank"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#4Rank"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#5Rank"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#6Rank"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#7Rank"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#8Rank"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
     </owl:Class>
     
 
@@ -213,6 +500,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#aFile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#aFile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a8"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b1 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b1">
@@ -273,6 +576,22 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b8">
         <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#bFile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#bFile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b8"/>
     </owl:NamedIndividual>
     
 
@@ -341,6 +660,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#cFile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#cFile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c8"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d1 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d1">
@@ -401,6 +736,390 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d8">
         <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#dFile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#dFile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_11">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_12">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_13">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_15 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_15">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_8">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_9">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNE"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_11">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_12">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_13">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_15 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_15">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_8">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_9">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#DiagonalNW"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h2"/>
     </owl:NamedIndividual>
     
 
@@ -469,6 +1188,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#eFile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#eFile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e8"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f1 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f1">
@@ -529,6 +1264,22 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f8">
         <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#fFile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#fFile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f8"/>
     </owl:NamedIndividual>
     
 
@@ -597,6 +1348,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#gFile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#gFile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g8"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h1 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h1">
@@ -658,6 +1425,355 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h8">
         <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hFile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hFile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#pointsWorth"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Pawn"/>
+            </owl:Restriction>
+        </rdf:type>
+        <pointsWorth rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1Rank -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1Rank">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g1"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#2Rank -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#2Rank">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g2"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#3">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#pointsWorth"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Bishop"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Knight"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#3Rank -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#3Rank">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g3"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#4Rank -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#4Rank">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g4"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#5">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#pointsWorth"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rook"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#5Rank -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#5Rank">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g5"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#6Rank -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#6Rank">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g6"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#7Rank -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#7Rank">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g7"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#8Rank -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#8Rank">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g8"/>
+        <hasSquare rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#9">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#pointsWorth"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Queen"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#a8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#b8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#c8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#d8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#e8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#f8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#g8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#h8"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#aFile"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#bFile"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#cFile"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#dFile"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#eFile"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#fFile"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#gFile"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hFile"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_10"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_11"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_12"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_13"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_14"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_15"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNE_9"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_10"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_11"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_12"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_13"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_14"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_15"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#diagNW_9"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1Rank"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#2Rank"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#3Rank"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#4Rank"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#5Rank"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#6Rank"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#7Rank"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#8Rank"/>
+        </owl:distinctMembers>
+    </rdf:Description>
 </rdf:RDF>
 
 

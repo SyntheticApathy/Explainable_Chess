@@ -13,7 +13,7 @@ def get_basic_description(onto):
     WHERE {{
         ?piece rdf:type/rdfs:subClassOf* :Piece .
         ?piece ?property ?target .
-        FILTER(?property IN (:onSquare, :isAttacking, :isDefending, :legalMove))
+        FILTER(?property IN (:onSquare, :isAttacking, :isDefending, :legalMove, :onSquare))
     }}
     """
     results = list(onto.world.sparql(query))

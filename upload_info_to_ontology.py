@@ -89,19 +89,25 @@ def upload_position(info: List[str], legal_moves):
     for r in range(8):
         for c in range(8):
             ch = board[r][c]
-            if ch == ".":
-                continue
-
-            piece_cls_name = fen_to_class[ch]
-            piece_cls = getattr(onto, piece_cls_name)
-            color_cls = WhitePiece if ch.isupper() else BlackPiece
-            color_tag = "w" if ch.isupper() else "b"
-
+            
             #get current square name
             file_char = chr(ord("a") + c)
             rank_num = 8 - r
             sq = f"{file_char}{rank_num}"
             sq_ind = getattr(onto, sq)
+            
+            if ch == ".":
+                sq_ind.isEmpty = [True]
+                continue
+            sq_ind.isEmpty = [False]
+            piece_cls_name = fen_to_class[ch]
+            piece_cls = getattr(onto, piece_cls_name)
+            color_cls = WhitePiece if ch.isupper() else BlackPiece
+            color_tag = "w" if ch.isupper() else "b"
+
+
+
+
 
             #create piece
             counters[(color_tag, piece_cls_name)] += 1
