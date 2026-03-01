@@ -119,9 +119,10 @@ build upon this for the baseline variation, so only focus on this for now.
 
 # Obj Properties
 
-| Name        | Desc                                                            |                |
-| ----------- | --------------------------------------------------------------- | -------------- |
-| isAttacking | A is attacking B if A has a legal move on the square of B       | done in python |
-| legalMove   | all legal moves of a piece                                      |                |
-| onSquare    | a piece is on a square.                                         |                |
-| isDefending | A is defending B if A can see B AND A and B are the same colour |                |
+| Name        | Desc                                                            |                     |
+| ----------- | --------------------------------------------------------------- | ------------------- |
+| isAttacking | A is attacking B if A has a legal move on the square of B       | done in python      |
+| legalMove   | all legal moves of a piece                                      |                     |
+| onSquare    | a piece is on a square.                                         |                     |
+| isDefending | A is defending B if A can see B AND A and B are the same colour |                     |
+| hasPiece    | A square s had a piece A if A is on s                           | Inverse of onSquare |
