@@ -25,7 +25,7 @@
 
 #### LLM
 - For now LLM is local, ssh into pc is kinda iffy ngl; sometimes work sometimes not bcs of the pi.
-- god i hate linux
+- god i love linux
 - llm integration
 	- query from onto
 	- for now only DL
