@@ -102,6 +102,8 @@
 ## Rook Classes 
 - build upon this for the baseline variation, so only focus on this for now.
 
+## Pawn Subclasses
+
 
 
 ## Subclasses

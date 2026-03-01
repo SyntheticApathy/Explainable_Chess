@@ -20,8 +20,12 @@
 
 
 ## Problems
+
+
+- Broken the Reasoner.
+
 #### DL
-- Currently, every rank/file/diagonal is infered as a rank/file/diagonal. Can't seem to fix
+- Open File/Rank/Diagonal
 ##### DLN
 - literally everything.
 - Work out basic ruleset for rook first, then expand
