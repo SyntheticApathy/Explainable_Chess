@@ -139,27 +139,6 @@
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedDiagonal -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedDiagonal">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Diagonal"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasPiece"/>
-                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Pawn"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Diagonal"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenDiagonal"/>
     </owl:Class>
@@ -169,27 +148,6 @@
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedFile -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedFile">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasPiece"/>
-                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Pawn"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#File"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenFile"/>
     </owl:Class>
@@ -199,28 +157,8 @@
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedRank -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedRank">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasPiece"/>
-                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Pawn"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenRank"/>
     </owl:Class>
     
 
@@ -301,13 +239,6 @@
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#hasSquare"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Square"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
     </owl:Class>
     
 
@@ -377,14 +308,6 @@
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Rank">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#ClosedRank"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#OpenRank"/>
-                </owl:unionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:oneOf rdf:parseType="Collection">
@@ -1447,13 +1370,6 @@
     <!-- http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1">
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#pointsWorth"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#Pawn"/>
-            </owl:Restriction>
-        </rdf:type>
-        <pointsWorth rdf:resource="http://www.semanticweb.org/dawid/ontologies/2026/1/Bachelor_Project#1"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdfs:label>
     </owl:NamedIndividual>
     

@@ -39,8 +39,6 @@ from chess_logic import *
 
 onto = get_ontology("BP_ontology.owx").load()
 
-
-
 def _input():
     """Take in FEN from user.
     ::args:: None
@@ -71,6 +69,7 @@ def upload_position(info: List[str], legal_moves):
         "p": "Pawn", "n": "Knight", "b": "Bishop", "r": "Rook", "q": "Queen", "k": "King",
         "P": "Pawn", "N": "Knight", "B": "Bishop", "R": "Rook", "Q": "Queen", "K": "King",
     }
+    
     fen_letter = {  # for naming only
         "Pawn": "P", "Knight": "N", "Bishop": "B", "Rook": "R", "Queen": "Q", "King": "K"
     }
@@ -79,13 +78,17 @@ def upload_position(info: List[str], legal_moves):
     WhitePiece = onto.WhitePiece
     BlackPiece = onto.BlackPiece
     
-    
-
-    
     counters = DefaultDict(int)
     cntr:int = 0
     created_pieces = []
+
+    # Initialize line trackers
+    closed_files = set()
+    closed_ranks = set()
+    closed_ne_diags = set()
+    closed_nw_diags = set()
     
+    # --- PHASE 1: Scan board and identify pieces ---
     for r in range(8):
         for c in range(8):
             ch = board[r][c]
@@ -99,17 +102,14 @@ def upload_position(info: List[str], legal_moves):
             if ch == ".":
                 sq_ind.isEmpty = [True]
                 continue
+            
             sq_ind.isEmpty = [False]
             piece_cls_name = fen_to_class[ch]
             piece_cls = getattr(onto, piece_cls_name)
             color_cls = WhitePiece if ch.isupper() else BlackPiece
             color_tag = "w" if ch.isupper() else "b"
 
-
-
-
-
-            #create piece
+            # Create piece individual
             counters[(color_tag, piece_cls_name)] += 1
             idx = counters[(color_tag, piece_cls_name)]
             letter = fen_letter[piece_cls_name]
@@ -123,17 +123,62 @@ def upload_position(info: List[str], legal_moves):
             #store in array so we can then access it to check for properties
             piece_ind.temp_sq = sq
             created_pieces.append(piece_ind)
-    
+
+            # closed lines
+            if piece_cls_name == "Pawn":
+                closed_files.add(file_char)
+                closed_ranks.add(rank_num)
+                closed_ne_diags.add(r + c + 1) # 0->14 to 1->15
+                closed_nw_diags.add(r - c + 8) 
+
+    # line classifications
+    # update Files
+    for c in range(8):
+        file_char = chr(ord("a") + c)
+        file_instance = getattr(onto, f"{file_char}File")
+        if file_char in closed_files:
+            file_instance.is_a.append(onto.ClosedFile)
+        else:
+            file_instance.is_a.append(onto.OpenFile)
+
+    # update Ranks
+    for rank_val in range(1, 9):
+        rank_instance = getattr(onto, f"{rank_val}Rank")
+        rank_instance.is_a = [cls for cls in rank_instance.is_a if cls not in [onto.ClosedRank, onto.OpenRank]]
+        
+        if rank_val in closed_ranks:
+            rank_instance.is_a.append(onto.ClosedRank)
+        else:
+            rank_instance.is_a.append(onto.OpenRank)
+
+    # update Diagonals (NE and NW)
+    for i in range(1, 16):
+        # update NE
+        ne_instance = getattr(onto, f"diagNE_{i}", None)
+        if ne_instance:
+            ne_instance.is_a = [cls for cls in ne_instance.is_a if cls not in [onto.ClosedDiagonal, onto.OpenDiagonal]]
+            if i in closed_ne_diags:
+                ne_instance.is_a.append(onto.ClosedDiagonal)
+            else:
+                ne_instance.is_a.append(onto.OpenDiagonal)
+        
+        # update NW
+        nw_instance = getattr(onto, f"diagNW_{i}", None)
+        if nw_instance:
+            nw_instance.is_a = [cls for cls in nw_instance.is_a if cls not in [onto.ClosedDiagonal, onto.OpenDiagonal]]
+            if i in closed_nw_diags:
+                nw_instance.is_a.append(onto.ClosedDiagonal)
+            else:
+                nw_instance.is_a.append(onto.OpenDiagonal)
+
     for piece in created_pieces:
-            
- #     ACTUAL LEGAL MOVES (From Stockfish)
+        # ACTUAL LEGAL MOVES (From Stockfish)
         moves = [m for m in legal_moves if m.startswith(piece.temp_sq)]
         for m in moves:
             dest_sq_ind = getattr(onto, m[2:4])
             piece.legalMove.append(dest_sq_ind)
 
         # THREAT ZONE (Attacking and Defending)
-        # Get all squares this piece 'points' at, including teammates
         threatened_squares = get_threat_map(" ".join(info), piece.temp_sq)
 
         for sq_name in threatened_squares:
@@ -141,54 +186,39 @@ def upload_position(info: List[str], legal_moves):
             target_piece = onto.search_one(onSquare=dest_sq_ind)
 
             if target_piece:
-                # Check for color matching
                 is_white = onto.WhitePiece in piece.is_a
                 target_is_white = onto.WhitePiece in target_piece.is_a
                 target_is_black = onto.BlackPiece in target_piece.is_a
 
                 if (is_white and target_is_black) or (not is_white and target_is_white):
-                    # Enemy color = Attacking
                     piece.isAttacking.append(target_piece)
                 elif (is_white and target_is_white) or (not is_white and target_is_black):
-                    # Same color = Defending
                     piece.isDefending.append(target_piece)
+        
         del piece.temp_sq
 
-
-            
-
+    # Save and reload ontology
     onto.save(file=f"Ontologies/udpated_ontology{cntr}.owx")
     onto1 = get_ontology(f"Ontologies/udpated_ontology{cntr}.owx").load()
-
-    cntr+=1
-    
-   
+    cntr += 1
     
     return onto1
 
 
 def create_board_rep(positions:List[str]) -> List[List[str]]:
-    """Helper function, converts List of strings to a nice chess board representation
-    ::args:: positions: List[str], FEN represntation of all piece positions
-    ::Return:: board: List[List[str]], an 8x8 matrix representing the chess board.
-    """
-
+    """Helper function, converts List of strings to a nice chess board representation"""
     board: List[List[str]] = []
-
-    for r,s in enumerate(positions):
+    for r, s in enumerate(positions):
         rank: List[str] = []
         for ch in s: 
             if ch.isdigit():
                 rank.extend(["."] * int(ch))
-
             else: 
                 rank.append(ch)
         board.append(rank)
     
     for r in board:
         print(r)
-
-
     return board
 
 
