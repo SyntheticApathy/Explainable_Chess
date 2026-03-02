@@ -26,6 +26,7 @@
 
 #### DL
 - Open File/Rank/Diagonal
+	- Might just be easier to do it in python
 ##### DLN
 - literally everything.
 - Work out basic ruleset for rook first, then expand
