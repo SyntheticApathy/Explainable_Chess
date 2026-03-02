@@ -22,11 +22,10 @@
 ## Problems
 
 
-- Broken the Reasoner.
-
 #### DL
 - Open File/Rank/Diagonal
 	- Might just be easier to do it in python
+		- Used python, works now.
 ##### DLN
 - literally everything.
 - Work out basic ruleset for rook first, then expand
