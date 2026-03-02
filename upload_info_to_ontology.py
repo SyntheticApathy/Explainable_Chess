@@ -88,7 +88,7 @@ def upload_position(info: List[str], legal_moves):
     closed_ne_diags = set()
     closed_nw_diags = set()
     
-    # --- PHASE 1: Scan board and identify pieces ---
+    #Scan board and identify pieces
     for r in range(8):
         for c in range(8):
             ch = board[r][c]
