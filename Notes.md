@@ -54,5 +54,6 @@
 
 #### Queries
 - Really bad for now, just query everything. Fix for more specific.
-- Split by colour, legal moves aren't  important.
+- Split by colour, legal moves aren't 
+- important.
 	- LLM generated queries? maybe? def for user questions
