@@ -26,6 +26,9 @@
 - Open File/Rank/Diagonal
 	- Might just be easier to do it in python
 		- Used python, works now.
+- ControlledFile 
+	- currently just checks for black, and only if Black has a rook on the file. Needs to be formalised better.
+		- Open world problem is annoying
 ##### DLN
 - literally everything.
 - Work out basic ruleset for rook first, then expand
