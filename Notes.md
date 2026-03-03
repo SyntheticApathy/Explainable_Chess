@@ -28,7 +28,7 @@
 	- currently just checks for black, and only if Black has a rook on the file. Needs to be formalised better.
 		- Open world problem is annoying
 - Active Piece
-	- OPEN WORLD PROBLEM AHHHHHHHHHHHHHH
+	- OPEN WORLD PROBLEM AHHHHHHHHHHHHHH - solved; look rank 
 ##### DLN
 - literally everything.
 - Work out basic ruleset for rook first, then expand
