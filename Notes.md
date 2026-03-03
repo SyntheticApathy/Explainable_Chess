@@ -26,12 +26,15 @@
 - Open File/Rank/Diagonal
 	- Might just be easier to do it in python
 		- Used python, works now.
-- ControlledFile 
+- ControlledFile/Rank/Diagonal
 	- currently just checks for black, and only if Black has a rook on the file. Needs to be formalised better.
 		- Open world problem is annoying
+- Active Piece
+	- OPEN WORLD PROBLEM AHHHHHHHHHHHHHH
 ##### DLN
 - literally everything.
 - Work out basic ruleset for rook first, then expand
+	- A Controlled File is only an advantage iff the rook is defended and active.
 
 
 #### Modal Logic
