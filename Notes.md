@@ -23,9 +23,7 @@
 
 
 #### DL
-- Open File/Rank/Diagonal
-	- Might just be easier to do it in python
-		- Used python, works now.
+
 - ControlledFile/Rank/Diagonal
 	- currently just checks for black, and only if Black has a rook on the file. Needs to be formalised better.
 		- Open world problem is annoying
