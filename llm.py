@@ -6,9 +6,9 @@ client = OpenAI(
     api_key="nothing" 
 )
 
-def basic(facts, evaluation):   
+def generate_explanation(facts, evaluation):   
 
-    eval = "White" if evaluation > 0 else "Black"
+    eval = "White" if evaluation/100 > 0 else "Black"
 
 
     prompt = f"""
@@ -29,7 +29,7 @@ def basic(facts, evaluation):
     OUTPUT:
     Your ouput should always follow this exact template:
 
-   " The evaluation is: {evaluation}. This means that {eval} is winning.
+   " The evaluation is: {(evaluation/100)}. This means that {eval} is winning.
     The description of the position is as follows: 
     {{your translated facts}}
 

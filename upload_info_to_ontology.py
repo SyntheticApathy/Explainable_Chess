@@ -74,10 +74,15 @@ def upload_position(info: List[str], legal_moves):
         "Pawn": "P", "Knight": "N", "Bishop": "B", "Rook": "R", "Queen": "Q", "King": "K"
     }
 
+    hasColour = onto.hasColour
+    
     onSquare = onto.onSquare
     WhitePiece = onto.WhitePiece
     BlackPiece = onto.BlackPiece
-    
+    White = onto.White
+    Black = onto.Black
+
+
     counters = DefaultDict(int)
     cntr:int = 0
     created_pieces = []
@@ -120,6 +125,8 @@ def upload_position(info: List[str], legal_moves):
 
             #on square
             onSquare[piece_ind] = [sq_ind]
+            #hasColour
+            piece_ind.hasColour = [White] if color_cls == WhitePiece else [Black]
             #store in array so we can then access it to check for properties
             piece_ind.temp_sq = sq
             created_pieces.append(piece_ind)
@@ -172,6 +179,7 @@ def upload_position(info: List[str], legal_moves):
                 nw_instance.is_a.append(onto.OpenDiagonal)
 
     for piece in created_pieces:
+        print(piece.hasColour)
         # ACTUAL LEGAL MOVES (From Stockfish)
         moves = [m for m in legal_moves if m.startswith(piece.temp_sq)]
         for m in moves:
@@ -180,19 +188,22 @@ def upload_position(info: List[str], legal_moves):
 
         # THREAT ZONE (Attacking and Defending)
         threatened_squares = get_threat_map(" ".join(info), piece.temp_sq)
+        print(threatened_squares)
 
         for sq_name in threatened_squares:
             dest_sq_ind = getattr(onto, sq_name)
-            target_piece = onto.search_one(onSquare=dest_sq_ind)
+            #print(f'dest_sq_ind; {dest_sq_ind.hasPiece}')
 
+            if dest_sq_ind.hasPiece != []:
+                target_piece = dest_sq_ind.hasPiece[0]
+            else:
+                target_piece = None
+            print(target_piece)
+            
             if target_piece:
-                is_white = onto.WhitePiece in piece.is_a
-                target_is_white = onto.WhitePiece in target_piece.is_a
-                target_is_black = onto.BlackPiece in target_piece.is_a
-
-                if (is_white and target_is_black) or (not is_white and target_is_white):
+                if (piece.hasColour[0] !=  target_piece.hasColour[0]):
                     piece.isAttacking.append(target_piece)
-                elif (is_white and target_is_white) or (not is_white and target_is_black):
+                elif (piece.hasColour[0] == target_piece.hasColour[0]):
                     piece.isDefending.append(target_piece)
         
         del piece.temp_sq

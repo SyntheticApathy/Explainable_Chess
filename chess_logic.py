@@ -8,15 +8,19 @@ from typing import List
 
 
 sf = Stockfish(path="bin/stockfish", depth = 5)
-global FEN
+FEN = "8/2k5/2r5/1ppp4/8/1R6/1K6/8 w - - 0 1"
 
 
 def getLegalMoves(fen:str) -> List[str]:
     FEN = fen
     sf.set_fen_position(FEN)
 
-    #get all possible moves 
-    return [*sf.get_perft(1)[1]]
+    #get all legal moves for both players
+    moves_preflip = [*sf.get_perft(1)[1]]
+    sf.flip()
+    moves_postflip = [*sf.get_perft(1)[1]]
+   
+    return moves_preflip + moves_postflip
     
 def get_threat_map(FEN: str, square_name: str):
     """
