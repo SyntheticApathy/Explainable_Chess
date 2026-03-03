@@ -7,5 +7,5 @@ from chess_logic import get_eval
 #This file runs the pipeline.
 
 facts = get_basic_description(_input())
-
-print(generate_explanation(facts,get_eval().get('value')))
+print(facts)
+#print(generate_explanation(facts,get_eval().get('value')))
