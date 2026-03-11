@@ -16,7 +16,9 @@
 	- Active
 	- Under Attack
 - Modal Logic might be very useful here, create separate ontologies for user questions and then utilise modal logic for answering questions
-
+- Describe move : Get facts about position $P_n$, then get $P_{n+1}$ facts. A move is good if: gains an advantage, losses a disadvantage, nullifies opponents advantage, generates a disadvantage for oponent.
+- How???? To compare Ontologies? Do I need to even ?
+- 
 
 
 ## Problems
